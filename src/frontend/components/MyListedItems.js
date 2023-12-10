@@ -35,8 +35,10 @@ export default function MyListedItems({ marketplace, nft, account }) {
       const i = await marketplace.items(indx)
       if (i.seller.toLowerCase() === account) {
         // get uri url from nft contract
+        console.log(nft);
         const uri = await nft.tokenURI(i.tokenId)
         // use uri to fetch the nft metadata stored on ipfs 
+        console.log(uri);
         const response = await fetch(uri)
         const metadata = await response.json()
         // get total price of item (item price + fee)

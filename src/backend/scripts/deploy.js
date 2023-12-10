@@ -1,3 +1,5 @@
+const { log } = require("console");
+
 async function main() {
   const [deployer] = await ethers.getSigners();
 
@@ -11,6 +13,8 @@ async function main() {
   // deploy contracts
   const marketplace = await Marketplace.deploy(1);
   const nft = await NFT.deploy();
+  console.log(marketplace.address);
+  console.log(nft.address                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             );
   // Save copies of each contracts abi and address to the frontend.
   saveFrontendFiles(marketplace , "Marketplace");
   saveFrontendFiles(nft , "NFT");
